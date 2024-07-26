@@ -1,5 +1,8 @@
 package com.java.helpers;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -74,6 +77,21 @@ public class ConsoleUtils {
         }
 
         return entry; 
+    }
+
+    // verifiy date
+    public static Date verifyDate() {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        formatter.setLenient(false);
+        while (true) {
+            try {
+                String dateStr = sc.nextLine().trim();
+                java.util.Date utilDate = formatter.parse(dateStr);
+                return new Date(utilDate.getTime());
+            } catch (ParseException e) {
+                System.out.println("Formato de fecha no válido. Por favor, ingrese la fecha en el formato yyyy-MM-dd.");
+            }
+        }
     }
 
 }
