@@ -147,4 +147,64 @@ public class PersonaRepository implements PersonaService {
             throw e;
         }
     }
+
+    @Override
+    public void updateAddress(String new_address, int id) throws SQLException{
+        String query = "UPDATE persons SET address = ? WHERE id = ?";
+
+        try (CallableStatement cs = connection.prepareCall(query)) {
+            cs.setString(1, new_address);
+            cs.setInt(2, id);
+            cs.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    @Override
+    public void updateAge(int new_age, int id) throws SQLException{
+        String query = "UPDATE persons SET age = ? WHERE id = ?";
+
+        try (CallableStatement cs = connection.prepareCall(query)) {
+            cs.setInt(1, new_age);
+            cs.setInt(2, id);
+            cs.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    @Override
+    public void updateEmail(String new_email, int id) throws SQLException{
+        String query = "UPDATE persons SET email = ? WHERE id = ?";
+
+        try (CallableStatement cs = connection.prepareCall(query)) {
+            cs.setString(1, new_email);
+            cs.setInt(2, id);
+            cs.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    @Override
+    public void updateGender(int new_gender, int id) throws SQLException{
+        String query = "UPDATE persons SET idgender = ? WHERE id = ?";
+
+        try (CallableStatement cs = connection.prepareCall(query)) {
+            cs.setInt(1, new_gender);
+            cs.setInt(2, id);
+            cs.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
 }
