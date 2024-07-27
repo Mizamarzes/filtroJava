@@ -183,7 +183,7 @@ public class PersonaController {
         System.out.println("7. genero");
         System.out.println("8. Salir");
 
-        int op = ConsoleUtils.verifyEntryInt(1, 5);
+        int op = ConsoleUtils.verifyEntryInt(1, 8);
 
         switch (op) {
             case 1:
