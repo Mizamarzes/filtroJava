@@ -82,7 +82,7 @@ public class Main {
                     pc.eliminarPersonaController();
                     break;
                 case 7:
-                    
+                    System.out.println("La buena profe");
                     return;
                 default:
                     break;

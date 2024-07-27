@@ -118,4 +118,33 @@ public class PersonaRepository implements PersonaService {
         }
     }
 
+    @Override
+    public void updateApellido(String new_apellido, int id) throws SQLException{
+        String query = "UPDATE persons SET lastname = ? WHERE id = ?";
+
+        try (CallableStatement cs = connection.prepareCall(query)) {
+            cs.setString(1, new_apellido);
+            cs.setInt(2, id);
+            cs.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    @Override
+    public void updateCity(int new_city, int id) throws SQLException{
+        String query = "UPDATE persons SET idcity = ? WHERE id = ?";
+
+        try (CallableStatement cs = connection.prepareCall(query)) {
+            cs.setInt(1, new_city);
+            cs.setInt(2, id);
+            cs.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
 }

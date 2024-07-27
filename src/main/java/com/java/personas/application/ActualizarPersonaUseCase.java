@@ -14,4 +14,12 @@ public class ActualizarPersonaUseCase {
     public void updateName(String new_name, int id) throws SQLException {
         personaService.updateName(new_name, id);
     }
+
+    public void updateApellido(String new_apellido, int id) throws SQLException {
+        personaService.updateApellido(new_apellido, id);
+    }
+
+    public void updateCity(int new_city, int id) throws SQLException {
+        personaService.updateCity(new_city, id);
+    }
 }

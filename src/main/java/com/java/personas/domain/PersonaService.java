@@ -14,5 +14,7 @@ public interface PersonaService {
     List<Persona> consultarPersonasBySkill(int idskill) throws SQLException;
 
     void updateName(String new_name, int id) throws SQLException;
+    void updateApellido(String new_apellido, int id) throws SQLException;
+    void updateCity(int new_city, int id) throws SQLException;
 
 }

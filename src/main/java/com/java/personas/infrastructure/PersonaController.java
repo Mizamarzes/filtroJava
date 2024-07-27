@@ -181,6 +181,7 @@ public class PersonaController {
         System.out.println("5. edad");
         System.out.println("6. email");
         System.out.println("7. genero");
+        System.out.println("8. Salir");
 
         int op = ConsoleUtils.verifyEntryInt(1, 5);
 
@@ -198,15 +199,49 @@ public class PersonaController {
                 }
                 break;
             case 2:
-                
+                ConsoleUtils.clear();
+                System.out.println("Ingrese el nuevo apellido: ");
+                String new_apellido = ConsoleUtils.verifyEntryString();
+                try {
+                    actualizarPersonaUseCase.updateApellido(new_apellido, idperson);
+                    System.out.println("");
+                    System.out.println("Persona actualizada con exito");
+                } catch (Exception e) {
+                    System.out.println("Error al actualizar");
+                }
                 break;
             case 3:
-                
+                ConsoleUtils.clear();
+                System.out.println("Ingrese la id de la nueva ciudad: ");
+                int new_city = ConsoleUtils.verifyingIntNoRange();
+
+                if (!validators.checkIdExistsINT("city", "id", new_city)) {
+                    return; 
+                }
+        
+                try {
+                    actualizarPersonaUseCase.updateCity(new_city, idperson);
+                    System.out.println("");
+                    System.out.println("Persona actualizada con exito");
+                } catch (Exception e) {
+                    System.out.println("Error al actualizar");
+                }
                 break;
             case 4:
                 
                 break;
-        
+            case 5:
+                System.out.println("En proceso");
+                break;
+            case 6:
+                System.out.println("En proceso");
+                break;
+            case 7:
+                System.out.println("En proceso");
+                break;
+            case 8:
+                
+                return;
             default:
                 break;
         }
